@@ -1,56 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import "./assets/scss/reset.scss";
+import "./assets/scss/global.scss";
+import clsx from "clsx";
 
 function App() {
+  useEffect(() => {
+    const onScroll: EventListener = () => {
+      document.body.style.cssText = `--scrollTop: ${window.scrollY}px`;
+    };
+    window.addEventListener("scroll", onScroll);
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+    <div>
+      <header>
+        <div className="layers">
+          <div className="layer-header">
+            <h1>Welcome to Parallax</h1>
+            <p>Fairy Forest</p>
+          </div>
+          <div className={clsx("layer", "layer_base")} />
+          <div className={clsx("layer", "layer_middle")} />
+          <div className={clsx("layer", "layer_front")} />
+        </div>
       </header>
+      <article className="main-article">
+        <div>
+          <h1>To be continued</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum
+            dignissimos, ex impedit labore modi necessitatibus non optio
+            repellendus reprehenderit sapiente!
+          </p>
+        </div>
+      </article>
     </div>
   );
 }

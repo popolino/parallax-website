@@ -1,0 +1,116 @@
+*,
+*:after,
+*:before {
+  font-size: calc(1vw + 1vh);
+  font-family: "Raleway", sans-serif !important;
+  box-sizing: border-box;
+  line-height: 1.55;
+  font-weight: 500;
+  color: white;
+}
+.main-article {
+  background: url("../img/dungeon.jpg") center / cover no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+article {
+  & > div {
+    will-change: transform;
+    transform: translate3d(0, calc(var(--scrollTop) / 10), 0);
+    margin-bottom: 5rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 100%;
+    & > h1,
+    p {
+      color: #fffdf3;
+      letter-spacing: 0.1rem;
+    }
+    & > h1 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+    & > p {
+      text-align: center;
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+  }
+}
+.layer_base {
+  background: url("../../assets/img/layer-base.png") center / cover no-repeat;
+  transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+  z-index: 0 !important;
+
+}
+.layer_middle {
+  background: url("../../assets/img/layer-middle.png") center / cover no-repeat;
+  transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+  transition: transform 0.03s cubic-bezier(0.075, 0.5, 0, 1);
+  will-change: transform;
+
+}
+.layer_front {
+  background: url("../../assets/img/layer-front.png") center / cover no-repeat;
+  transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+  transition: transform 0.03s cubic-bezier(0.075, 0.5, 0, 1);
+  will-change: transform;
+
+}
+.layers {
+  will-change: transform;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  .layer-header {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.01s cubic-bezier(0.075, 0.5, 0, 1);
+    will-change: transform;
+
+    & > h1,
+    p {
+      color: #fffce7;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 15px rgb(180, 156, 83);
+    }
+    & > p {
+      font-size: 3rem;
+    }
+  }
+}
+header::after {
+  content: "";
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 11rem;
+  bottom: -5rem;
+  background: url("../../assets/img/ground.png") center / cover no-repeat;
+}
+.layer {
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+header{
+  will-change: transform;
+}
